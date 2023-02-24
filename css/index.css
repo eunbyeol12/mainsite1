@@ -31,16 +31,20 @@ body{color: #222;
   position: fixed;
   right: 30px;
   bottom: 30px;
+  font-family: 'InkLipquid';
+
 }
 .top a{
   display: block;
   width: 60px;
   height: 60px;
-  font-size: 15px;
+  font-size: 25px;
+  text-decoration-line: none;
+  color: green;
 }
 .top a:hover{
   color: orange;
-  font-size: 18px;}
+  font-size: 30px;}
 
 /* header logo */
 /* header */
@@ -57,7 +61,8 @@ nav{
   justify-content: center;
   align-items: center;
 }
-ul{list-style: none;}/* 탑메뉴 점 없애기 */
+.gnb{list-style-type: none;}/* 탑메뉴 점 없애기 */
+.gnb a{text-decoration-line: none;}/* 탑메뉴 밑줄 없애기 */
 
 .gnb{display: flex;
   position: relative;}
@@ -68,10 +73,6 @@ ul{list-style: none;}/* 탑메뉴 점 없애기 */
   font-size: 22px;
   color:#ddd;
   position: relative;
-/*   background-image: linear-gradient(to right, #d9afd9, #97d9e1);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent; */ 
 }
 .gnb li a:before{
   content: '';
@@ -99,31 +100,32 @@ main{
 main:hover{
   background-image: url(../image/main3.jpg);
 }
-
-main h1 {
+.logo{position: relative;}
+.logo h1 {
   font-size: 20px;
   min-width:11px;
   white-space: nowrap;
   margin: 0;
   position:absolute;
-  color: #fff;
+/*   color: #fff; */
+  color:#ddd;
   top:50%;
   left:50%;
-  transform: translate(-50%, -50%);
-  font-size: 100px;
+  transform: translate(-160%, -50%);
+  font-size: 45px;
 }
 
-h1::before {
+.logo h1::before {
   content: "NONFICTION";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  color: orange;
-  overflow: hidden;
+  color: rgb(145, 56, 56);
+  overflow: hidden;;
 /*   border-right: 1px solid black; */
-  animation: typing 5s  steps(40) infinite;
+  animation: typing 7s  steps(40) infinite;
   animation-fill-mode: both;
 }
 
@@ -179,6 +181,7 @@ section h3 {font-size: 20px;}
   transform: translateY(-20px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
+#SHOP h2:hover{color: orange;}
 .content{
   position: absolute;
   top: 100%;
@@ -191,14 +194,18 @@ section h3 {font-size: 20px;}
   box-sizing: border-box;
   transition: 0.5s;
 }
-
+.content h3, p{line-height: 1px;}
+.card p{ font-family: 'Merriweather', serif;
+  font-weight: bold;}/* 가격글씨 진하게 */
 
 .content h3{color: green;
   font-weight: bold;
   margin-top: 10px; }
 .card:hover .content{top: 0;}
 
-h2{margin-top: 20px;}
+#SHOP h2{margin-top: 60px;  
+  color: green;
+  font-size: 55px;}
 
 .card .content{background: linear-gradient(to top, rgb(244, 180, 63), transparent);}
 
@@ -225,6 +232,7 @@ h2{margin-top: 20px;}
 }
 .container2 h4{font-size: 22px;
   margin-top: 10px;
+  margin-bottom: 10px;
   color: brown;}
 .container2 p{
   font-family: 'InkLipquid';
@@ -244,6 +252,7 @@ h2{margin-top: 20px;}
   box-sizing: border-box;
   transition: 0.5s;
 }
+
 .container2:hover .content2{bottom: 0;}
 .container2 img{transition: 0.5s;}
 .container2:hover img{filter:blur(2px);}
@@ -297,8 +306,11 @@ h2{margin-top: 20px;}
   font-weight: bold;
   font-size: 20px;
 }
+.content3 h2, p{
+  line-height: 15px;
+}/* h2랑 p 간격 좁히기 */
 .content3 h2{font-size: 28px;
-  padding-top: 10px;}
+  padding-top: 15px;}
 
 .gallery li:hover .content3{bottom: 100px;
 transition-delay: 0.5s;}/* 0.5있다가 올라게해줌  */
@@ -308,46 +320,111 @@ transition-delay: 0.5s;}/* 0.5있다가 올라게해줌  */
 
 /* 컨텐츠4 */
 
-.content4{
-/*   border: 1px solid red; */
-  background: url(../image/main1.jpg) no-repeat;
-  width: 100%;
-  height: 300px;
+@keyframes circle{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.container4{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  margin-bottom: 30px;
+  width: 100%;
+  height: 600px;
 }
-.content4 p{
-  font-family: 'Merriweather', serif;
-  font-size: 28px;
-  font-weight: bold;
-/*   border: 1px solid #000; */
-  margin: 60px;
-  color: green;
-  text-align: center;
+.square{
+  position: relative;
+  width: 350px;
+  height: 350px;
+  margin: 0 20px;
 }
-.content4 span{
-  font-size: 18px;
-/*   color: rgb(90, 90, 90); */
-  color: #222;
-  font-family: 'Merriweather', serif;
-/*   border: 1px solid #000; */
-  opacity: 0;
-  transition: 0.5s;
+.square span{
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border: 1px solid orange;
+  border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+  margin-right: 800px;
+  left:10%;
+}
+.square span:nth-child(1){animation: circle 6s linear infinite;}
+.square span:nth-child(2){animation: circle 4s linear infinite reverse;}
+.square span:nth-child(3){animation: circle 10s linear infinite;}
+.square span:nth-child(4){animation: circle 10s linear infinite;}
+
+.square:hover span:nth-child(1){opacity: 0.3;}
+.square:hover span:nth-child(2){opacity: 0.6;}
+.square:hover span:nth-child(3){opacity: 0.8;}
+
+.square:nth-child(1):hover span{
+  background-color: rgb(253, 186, 124);
+  border: none;
+}
+.square:nth-child(2):hover span{
+  background-color: rgb(112, 192, 112);
+  border: none;
 }
 
-.content4 p:hover span{opacity: 1;}
-.content4:hover p{opacity: 0.2;}
-.content4 p:hover{  opacity: 1;}
+.square:nth-child(3):hover span{
+  background-color: rgb(253, 186, 124);
+  border: none;
+}
+.square:nth-child(4):hover span{
+  background-color: rgb(112, 192, 112);
+  border: none;
+}
+
+
+
+.square div{
+/*   border: 1px solid red; */
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform:  translate(-50%, -50% );
+  width: 70%;
+  text-align: center;
+  font-size: 30px;
+  color: green;
+  margin-left: 140px;
+}
+.square div p{
+  font-family: 'InkLipquid';
+  color: #fff;
+  font-size: 30px;
+  line-height: 28px;
+/*   border: 1px solid #000; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+.square div a{
+  display: inline-block;
+  border: 1px solid #fff;
+  border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 20px;
+}
+.square a{
+  text-decoration: none;
+  color: brown;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+}
+
 
 
 
 /* footer */
-footer{/* border: 1px solid #000; */
-  background-color:rgba(207, 207, 207, 0.1);
+footer{
   width: 100%;
   height: 60px;
   text-align: center;
-  padding-top: 20px;}
+  padding-top: 20px;
+/*   border: 1px solid red; */}
